@@ -6,9 +6,10 @@
 name: Create and publish a Docker image
 
 on:
-  push:
-    branches: ['release']
   workflow_dispatch:
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '0 2 * * *'
 
 env:
   REGISTRY: ghcr.io
